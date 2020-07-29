@@ -33,6 +33,30 @@ This repository defines a [Terraform module](https://www.terraform.io/docs/modul
 code by adding a `module` configuration and setting its `source` parameter to URL of this repository. See the [examples](/examples) folder for guidance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| google | >= 3.0, <4.0.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| null | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| message | Message to pass to echo | `string` | `"Hello terraform-kitchen template"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| name | Message to pass to echo |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
