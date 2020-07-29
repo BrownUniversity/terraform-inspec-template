@@ -1,3 +1,11 @@
+#Kitchen terraform
+*.kitchen
+
+#VSCode
+.DS_Store
+
+#variables used in the tests
+*terraform.tfvars
 # Local .terraform directories
 **/.terraform/*
 
