@@ -38,6 +38,7 @@ This template implements the following:
     | `terraform_tflint`                               | Validates all Terraform configuration files with [TFLint](https://github.com/terraform-linters/tflint).                              |
     | `terraform_tfsec`                                | [TFSec](https://github.com/liamg/tfsec) static analysis of terraform templates to spot potential security issues.     |
 * GitHub Actions to label PullRequests, Draft Releases and Run the kitchen tests. See [Development Section](#development) for further instructions
+* Protections on the default branch. Commits to default branch need to be through a PR that has been reviewed and has passing tests 
 
 ## How to use this module
 
@@ -59,8 +60,7 @@ After getting familiar with pre-commit hooks and actions, you are ready to **cus
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| google | >= 3.0, <4.0.0 |
+| terraform | ~> 0.12 |
 
 ## Providers
 
@@ -78,7 +78,7 @@ After getting familiar with pre-commit hooks and actions, you are ready to **cus
 
 | Name | Description |
 |------|-------------|
-| name | Message to pass to echo |
+| message | Message to pass to echo |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
@@ -124,8 +124,8 @@ To run them: `pre-commit run -a`
 ### CI
 This project has three workflows enabled:
 
-1. PR labeler: When openning a PR to defaukt branch, a label is given assigned automatically accourding to the name of your feature branch. The labeler follows the follows rules in [pr-labeler.yml](.github/pr-labeler.yml)
+1. PR labeler: When openning a PR to default branch, a label is given automatically according to the name of your feature branch. The labeler follows thenrules in [pr-labeler.yml](.github/pr-labeler.yml)
 
-2. Realease Drafter: When merging to master, a release is drafted using the [Release-Drafter Action](https://github.com/marketplace/actions/release-drafter)
+2. Release Drafter: When merging to master, a release is drafted using the [Release-Drafter Action](https://github.com/marketplace/actions/release-drafter)
 
 3. `Kitchen test` is run on every commit unless `[skip ci]` is added to commit message.
