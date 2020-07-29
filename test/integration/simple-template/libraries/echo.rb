@@ -5,7 +5,7 @@ class Echo < Inspec.resource(1)
     supports platform: 'unix'
   
     def initialize(message)
-      @resp = inspec.command("nslookup #{addr}")
+      @resp = inspec.command("echo #{message}")
     end
   
     def stdout
