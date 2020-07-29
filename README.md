@@ -1,12 +1,11 @@
-# terraform-inspec-template
-A template repository for terraform-inspect projects
+# terraform-kitchen-template
+A template repository for terraform projects with kitchen terraform tests, pre-commit hooks, and GitHub actions for CI, PR labeler and Relase Drafter. See [Development](#development) section for details.
 
 # update-badge
 **update badge link below!**
 
-![kitchen-tests](https://github.com/BrownUniversity/terraform-inspec-template/workflows/kitchen-tests/badge.svg)
+![kitchen-tests](https://github.com/BrownUniversity/terraform-kitchen-template/workflows/kitchen-tests/badge.svg)
 
-[Terraform](https://www.terraform.io/) module for ...
 
 # Contents:
 
