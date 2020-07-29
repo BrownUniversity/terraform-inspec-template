@@ -7,7 +7,7 @@ locals {
 
 }
 
-module "simple-project" {
+module "simple-template" {
   source = "../../"
 
   message = local.message
