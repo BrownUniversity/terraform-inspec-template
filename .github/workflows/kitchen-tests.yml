@@ -2,11 +2,28 @@ name: kitchen-tests
 
 on: [push, workflow_dispatch]
 
+#change repository and it must exist in DockerHub
+env:
+    REPO: "brownccv/terraform-kitchen-template"
+    TAG: "latest"
+
 jobs:
-  all:
+  build-and-push:
+    if: "!contains(github.event.commits[0].message, '[skip docker]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: $REPO:$TAG
+          tags: latest
+  test:
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
-    container: brownccv/kitchen-terraform:latest
+    container: $REPO:$TAG
 
     steps:
     - uses: actions/checkout@v1
