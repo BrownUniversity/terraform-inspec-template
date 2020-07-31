@@ -14,7 +14,7 @@ RUN apk update && \
 RUN mkdir /usr/app
 WORKDIR /usr/app
 
-COPY Gemfile* .
+COPY Gemfile* ./
 RUN gem install bundler
 RUN bundle config set system 'true'
 RUN bundle install
