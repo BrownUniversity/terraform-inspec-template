@@ -8,7 +8,7 @@ env:
     TAG: "latest"
 
 jobs:
-  build-and-push:
+  docker:
     if: "!contains(github.event.commits[0].message, '[skip docker]')"
     runs-on: ubuntu-latest
     steps:
@@ -21,10 +21,10 @@ jobs:
           repository: $REPO:$TAG
           tags: latest
   test:
+    needs: [docker]
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     container: $REPO:$TAG
-
     steps:
     - uses: actions/checkout@v1
     - name: Run Kitchen
