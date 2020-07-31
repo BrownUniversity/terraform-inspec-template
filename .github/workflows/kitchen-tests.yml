@@ -18,8 +18,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: $REPO:$TAG
-          tags: latest
+          repository: $REPO
+          tags: $TAG
   test:
     needs: [docker]
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
